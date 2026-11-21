@@ -2,9 +2,10 @@ import time as tm
 import random as r
 import tkinter as tk
 from tkinter import ttk
-from assets import picture_path1
+from assets import load_pictures
 
 window = tk.Tk()
+picture1, picture2, picture3 = load_pictures(window)
 window.geometry("400x400")
 window.config(bg="light blue")
 notebook = ttk.Notebook(window)
@@ -41,5 +42,9 @@ home_t = create_ta("Home","light blue")
 shop_t = create_ta("Shop","light blue")
 create_t("Game","Arial",30,"bold",140,0,home_t,)
 
+
+monster_image = picture1.subsample(3, 3)
+monster_label = tk.Label(home_t, image=monster_image, bg="light blue")
+monster_label.place(relx=0.5, y=65, anchor="n")
 
 window.mainloop()
